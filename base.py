@@ -1,5 +1,6 @@
 from unit import BaseUnit
 
+
 class BaseSingleton(type):
     _instances = {}
 
@@ -44,7 +45,6 @@ class Arena(metaclass=BaseSingleton):
 
         return self._end_game()
 
-
     def _stamina_regeneration(self):
         # TODO регенерация здоровья и стамины для игрока и врага за ход
         # TODO в этом методе к количеству стамины игрока и врага прибавляется константное значение.
@@ -57,7 +57,6 @@ class Arena(metaclass=BaseSingleton):
                 unit.stamina = unit.unit_class.max_stamina
             else:
                 unit.stamina += self.STAMINA_PER_ROUND
-
 
     def next_turn(self):
         # TODO СЛЕДУЮЩИЙ ХОД -> return result | return self.enemy.hit(self.player)
@@ -75,7 +74,6 @@ class Arena(metaclass=BaseSingleton):
         if self.game_is_running:
             self._stamina_regeneration()
             return self.enemy.hit(self.player)
-
 
     def _end_game(self):
         # TODO КНОПКА ЗАВЕРШЕНИЕ ИГРЫ - > return result: str
