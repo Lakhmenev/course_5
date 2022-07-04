@@ -58,6 +58,9 @@ class BaseUnit(ABC):
         #  и возвращаем предполагаемый урон для последующего вывода пользователю в текстовом виде
 
         self.stamina -= self.weapon.stamina_per_hit * self.unit_class.stamina
+        if self.stamina < 0:
+            self.stamina = 0
+
         damage = self.weapon.damage * self.unit_class.attack
 
         # Проверяем сможет ли противник заблокировать удар бронёй
